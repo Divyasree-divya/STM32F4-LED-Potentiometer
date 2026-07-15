@@ -1,0 +1,21 @@
+// Potentiometry LED blink using Potentiometer
+
+int pot = PA0;
+int led = PA8;
+
+void setup()
+{
+    Serial.begin(9600);
+    pinMode(led, OUTPUT);
+}
+
+void loop()
+{
+    int potValue = analogRead(pot);
+
+    int brightness = map(potValue, 0, 4095, 0, 255);
+
+    analogWrite(led, brightness);
+
+    delay(500);
+}
