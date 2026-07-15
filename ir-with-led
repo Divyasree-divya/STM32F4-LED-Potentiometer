@@ -1,0 +1,32 @@
+// IR with LED
+
+int ir = 2;
+int led = 8;
+
+void setup()
+{
+    pinMode(ir, INPUT);
+    pinMode(led, OUTPUT);
+    Serial.begin(9600);
+}
+
+void loop()
+{
+    int irvalue = digitalRead(ir);
+
+    Serial.print("irvalue ");
+    Serial.print(irvalue);
+
+    if (irvalue == LOW)
+    {
+        Serial.println("Object detected");
+        digitalWrite(led, HIGH);
+    }
+    else
+    {
+        Serial.println("No Object detected");
+        digitalWrite(led, LOW);
+    }
+
+    delay(1000);
+}
